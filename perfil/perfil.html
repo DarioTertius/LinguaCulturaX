@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LinguaculturaX</title>
+    <link rel="icon" href="../imagens/logoslinguacultarax.ico" sizes="any">
+    <link rel="icon" href="../imagens/logoslinguacultarax.ico" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="../imagens/logoslinguacultarax.png">
+
+    <link rel="stylesheet" href="styleperfis.css" />
+  </head>
+  <body>
+    <header class="header-cover">
+      <!-- Imagem de capa de fundo -->
+      <img
+        src="../imagens/capapes.jpeg"
+        alt="Pessoas aprendendo"
+        class="cover-bg-image"
+      />
+
+      <!-- Overlay escuro -->
+      <div class="cover-overlay"></div>
+
+      <!-- Conteúdo do header -->
+      <div class="header-content">
+        <div class="header-info">
+          <h1>
+            <img
+              src="../imagens/logoslinguacultarax.png"
+              alt="logo"
+              style="
+                width: 200px;
+                height: 200px;
+                vertical-align: middle;
+                margin-right: 10px;
+                border-radius: 100%;
+              "
+            />LinguaCulturaX
+          </h1>
+          <p>Língua e Cultura pertinho de você!</p>
+        </div>
+
+        <div class="header-buttons">
+          <button class="language-toggle" onclick="toggleLanguage()">
+            <div class="flag-container">
+              <img
+                id="flag-br"
+                src="../imagens/bandeira-brasil.gif"
+                alt="Brasil"
+                class="flag-icon"
+              />
+              <span id="emoji-br" class="flag-emoji">🇧🇷</span>
+              <span>PT</span>
+            </div>
+            <span class="separator">/</span>
+            <div class="flag-container">
+              <span>DE</span>
+              <img
+                id="flag-de"
+                src="../imagens/bandeira-alemanha.gif"
+                alt="Alemanha"
+                class="flag-icon"
+              />
+              <span id="emoji-de" class="flag-emoji">🇩🇪</span>
+            </div>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="../alemao-para-lusofonos.html">Cursos</a>
+      <a href="/meublog/index1.html">Blog</a>
+      <a href="perfilemde.html">Perfil (em alemão)</a>
+    </nav>
+
+    <div class="content-wrapper">
+      <!-- SIDEBAR DE BUSCA À ESQUERDA -->
+      <aside class="sidebar-search">
+        <div class="sidebar-sticky-container">
+          <div class="search-sticky">
+            <h3>🔍 Buscar</h3>
+            <div class="search-box-container">
+              <input
+                type="text"
+                id="searchInput"
+                class="search-input"
+                placeholder="O que você está procurando?"
+              />
+              <button
+                id="searchButton"
+                class="search-btn"
+                onclick="performSearch()"
+              >
+                🔍 Buscar
+              </button>
+            </div>
+            <div id="searchResults" class="search-results-sidebar"></div>
+          </div>
+
+          <div class="redes">
+            <h3>📱 Nos siga nas redes sociais!</h3>
+            <div class="social-links">
+              <a
+                href="https://facebook.com/suapagina"
+                target="_blank"
+                class="social-btn facebook"
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                  />
+                </svg>
+                Facebook
+              </a>
+
+              <a
+                href="https://instagram.com/suapagina"
+                target="_blank"
+                class="social-btn instagram"
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                  />
+                </svg>
+                Instagram
+              </a>
+
+              <a
+                href="https://twitter.com/suapagina"
+                target="_blank"
+                class="social-btn twitter"
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                  />
+                </svg>
+                X (Twitter)
+              </a>
+
+              <a
+                href="https://youtube.com/suacanal"
+                target="_blank"
+                class="social-btn youtube"
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                  />
+                </svg>
+                YouTube
+              </a>
+            </div>
+          </div>
+
+          <div class="doacoes">
+            <h3>Aproveite o conteúdo gratuito e se gostar, fique à vontade para apoiar nosso projeto</h3>
+            <h3>💝 Apoie nosso projeto</h3>
+            <div class="donation-image">
+              <img src="../imagens/donation1.jpeg" alt="QR Code para doação" />
+            </div>
+            <p>
+              Sua contribuição nos ajuda a continuar oferecendo conteúdo de
+              qualidade!
+            </p>
+            <a
+              href="pagina-de-doacoes.html"
+              class="donation-btn"
+              target="_blank"
+            >
+              ❤️ Fazer uma doação
+            </a>
+          </div>
+        </div>
+      </aside>
+
+      <!-- CONTEÚDO PRINCIPAL -->
+      <main class="main-content">
+        <section id="boasvindas">
+          <h2> Olá, visitante! 👋</h2>
+          <p>
+            Olá! Meu nome é <strong>Maria Fábia Paz Vitorino Willems</strong>. Eu nasci no Brasil e vivi 27 anos na Alemanha. Tenho dupla nacionalidade: a brasileira e a alemã. Sou linguista, professora de línguas e tradutora. Vivo entre dois países, incorporando duas culturas lindas.
+          </p>
+          <br><br>
+          
+          <div> <img src="../imagens/perfilfabiawillems.jpeg" alt="" class="perfil-imagem" /> </div> <br> <br>
+          <p>
+            Nasci na "Terra do Sol" (o Ceará) e cresci na "Terra da Garoa" (São Paulo).  Quando era criança, gostava de brincar de ser professora com meus irmãos e primos. Tinha até lousa, giz e apagador! Os aluninhos se comportavam bem e não reclamavam da aula.
+          </p>
+          <p>
+            Já na adolescência, decidi fazer um Curso Técnico de Processamento de Dados, mas era aluna do Ensino Médio de uma escola pública e morava na periferia. Por isso, precisei começar a trabalhar aos 15 anos como vendedora para poder financiar o curso no período noturno. Foi difícil, mas consegui me formar dois anos depois. Trabalhei na profissão, como digitadora num centro de computação, mas por pouco tempo. Embora adorasse aquelas máquinas, sentia a necessidade de exercer uma profissão que tivesse mais contato com os seres humanos. Trabalhei como auxiliar de escritório também. Foi aí que o sonho de criança voltou: ser professora. Voltei a estudar e me preparei para o vestibular.
+          </p>
+          <p>
+            Aos 20 anos, consegui entrar na universidade. Já no quarto semestre, comecei a lecionar português. O curso de Licenciatura em Letras com especialização em Português, Inglês e suas Literaturas exigia dedicação e muito estudo. Conseguir me formar exigiu, muito suor, abdicação, resilência, orações e o apoio da minha família. Esse curso corresponde, na Alemanha, ao curso chamado „Lehramt am Gymnasien/Staatsexamen“.
+          </p>
+          <p>
+            Trabalhei como Professora de Línguas (de Português, Literatura e Inglês) em colégios públicos e privados na capital de São Paulo (no Brasil) até 1996. Também tive experiência como Professora Coordenadora para Projetos Literários e Feira da Ciência por um ano. Foi sensacional.
+          </p>
+          <p>
+            Em 1996, casei-me e mudei-me para a Alemanha.  Primeiramente tive que aprender a língua e conhecer a cultura do país. De minha segunda família recebi todo apoio que precisava para me integrar totalmente aos costumes do novo país. No segundo ano morando na Alemanha, voltei a lecionar Português na Universidade Popular de Stuttgart e foi um sensação incrível voltar à sala de aula. No terceiro ano, depois de intensivos estudos para conseguir passar na prova de acesso à universidade, Deus me abençou a conseguir uma vaga na Universidade “Karl Eberhardt” em Tubinga. Iniciei meus estudos em Linguística: Romanística (Português e Espanhol) e Germanística (Alemão). Terminei a graduação, com mestrado integrado, chamado de “Magister Artium” (M.A.). O tema do trabalho de finalização de curso teve uma pesquisa de 6 meses, foi escrito em língua alemã com o material de pesquisa (Corpora)  em Português e com tema “A Comunicação na Internet – Uma Análise Linguística da Conversação nas Salas de Chat Brasileiras” .
+          </p>
+          <p>
+            Durante a faculdade, também trabalhei, lecionando algumas noites. Também frequentei a Academia para Formação de Professores da Universidade Popular de Stuttgart e da Associação das Universidades Populares do Estado de Baden-Württemberg nos fins de semana. Também valeu muito a pena fazer a Especialização no Ensino de Línguas para Adultos com ênfase no Ensino Interdiziplinar e com Mídia Digital na Educação.  Foi assim que consegui concluir meus estudos, porém sigo me aprimorando smepre, afinal, a sempre algo a aprender. Não é verdade?
+          </p>
+          <p>
+            Em 2024, finalmente, realizei meu sonho de retornar à minha terra natal: o Brasil. 
+          </p>
+          <p>
+            Em agosto de 2025, feliz da vida, abri minha firma, uma MEI (Micro Empreendedor Individual) para oferecer Cursos de Línguas, Acompanhamento Escolar e Aulas de Computação para a Terceira Idade online e na região onde moro.
+          </p>
+        </section>
+        <section id="cursos">
+          <h2>📚 Experiências</h2>
+          <p>
+            Já são mais de 30 anos de experiência no ensino de línguas, trabalhando em escolas de línguas, universidades e empresas de médio e grande porte. Entre meus clientes estão:
+          </p>
+          <div class="metodo">
+            <ul class="expandable-list">
+              <li class="expandable-item">
+                <div class="expandable-header" onclick="toggleExpand(this)">
+                  <span> 🌍 Volkshochschule Stuttgart, Vhs-Esslingen, Erbe Elektromedizin, Koppenhöfer + Partner, Phase 5 Arquitetura e Mahle Stiftung Stuttgart, Linguarama Sprachinstitut (Porsche, Mercedes-Benz) e aulas particulares a pessoas de diversos países.</span>
+                  <span class="expandable-icon">▼ </span>
+                </div>
+                <div class="expandable-content">
+         
+         <!-- Carrouseel-->
+         
+                  <div class="cx-carousel">
+            <div class="cx-carousel-track">
+              <div class="cx-slide">
+                <img src="../imagens/vhs.jfif" alt="Imagem 1">
+              </div>
+                <div class="cx-slide">
+                  <img src="../imagens/Mahle Stiftung Stuttgart.jfif" alt="Imagem 2">
+              </div>
+                <div class="cx-slide">
+                  <img src="../imagens/Linguarama Sprachinstitut.jfif" alt="Imagem 3">
+                </div>
+                <div class="cx-slide">
+                  <img src="../imagens/Koppenhöfer + Partner.jfif" alt="Imagem 4">
+                </div>
+                <div class="cx-slide">
+                  <img src="../imagens/Vhs-Esslingen.jpg" alt="Imagem 5">
+                </div>
+                <div class="cx-slide">
+                  <img src="../imagens/porsche.jpg" alt="Imagem 6">
+                </div>
+                <div class="cx-slide">
+                  <img src="../imagens/mercedes=benz.jpg" alt="Imagem 7">
+                </div>
+              </div>
+          </div>
+
+                </div>
+              </li>
+              <li class="expandable-item">
+                <div class="expandable-header" onclick="toggleExpand(this)">
+                  <span>📚 Professora de Alemão e Português, tradutora, learn-couch e cultural-couch.</span>
+                  <span class="expandable-icon">▼</span>
+                </div>
+                <div class="expandable-content">
+                  <ul>
+                    <li>
+                    <strong>Professora de Alemão e Português</strong> para o trabalho, Português para viagens, Português com a Mídia Digital e Cursos Online.
+                    </li>
+                  <li>
+                    <strong>Tradutora de Alemão-Português e Português-Alemão</strong> para empresas e pessoa física
+                  </li>
+                  <li>
+                    </strong>Learn-Couch</strong> para pessoas que precisam preparar-se para provas e querem conhecer novas técnicas de aprendizagem, estudando assim de forma mais rápida e eficaz
+                  </li>
+                  <li>
+                    <strong>Cultural-Couch</strong> para brasileiros e alemães interessados em morar ou trabalhar em um dos dois países e querem conhecer melhor a cultura de seu futuro lar.
+                  </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="expandable-item">
+                <div class="expandable-header" onclick="toggleExpand(this)">
+                  <span>🎯 Assistente pedagógica e mentora para as línguas Alemão, Português e Espanhol, professora coordenadora e "Madrinha de Leitura" </span>
+                  <span class="expandable-icon">▼</span>
+                </div>
+                <div class="expandable-content">
+                 <ul>
+                  <li><strong>Assistente pedagógica</strong> no Centro Computadorizado de Línguas da Universidade Popular de Esslingen (CuLt)</li>
+                  <li><strong>Mentora</strong> para alunos que desejam aprimorar suas habilidades linguísticas e culturais também no Centro Computadorizado de Línguas da Universidade Popular de Esslingen (CuLt)</li>
+                  <li><strong>Professora coordenadora</strong> em Colégio paulista</li>
+                  <li><strong>Voluntariado como "Madrinha de Leitura"</strong> para crianças e adolescentes no Projeto de Leitura "Leseheimat" do Clube de Leitura "Leseohren Augeklapt e. V." em Stuttgart, sul da Alemanha.</li>
+                 </ul>
+                </div>
+              </li>
+            </ul>
+
+            <h2>Lecionar para mim não é apenas um trabalho, é uma missão. Tenho um enorme prazer em fazê-lo.</h2>
+
+            <h2>Hobbys</h2>
+            <h4>
+              Adoro fotografar principalmente a natureza!  
+            </h4>
+            
+             <!-- Carrouseel de fotos-->
+            <div class="ph-carousel">
+              <div class="ph-track">
+                <div class="ph-slide">
+                  <img src="../imagens/natureza.jpeg" alt="Foto do cliente 1">
+                </div>
+                <div class="ph-slide">
+                  <img src="imagens/foto2.jpg" alt="Foto do cliente 2">
+                </div>
+                <div class="ph-slide">
+                  <img src="imagens/foto3.jpg" alt="Foto do cliente 3">
+                </div>
+              </div>
+            </div>
+
+
+            <h4>Na Alemanha, descobri o amor pela culinária. Antes eu cozinhava para não morrer de fome.</h4>
+            <img src="../imagens/culinaria.jpeg" alt="fotodeprato" class="foto-prato" />
+
+            <h4>Comecei a aprender violão e teclado, um sonho antigo. Um dia eu vou conseguir tocar algumas músicas. Cantar, de jeito nenhum, pois sou extremamente desafinada. Só se acontecer um milagre mesmo.</h4>
+            <img src="../imagens/violao.jpeg" alt="fotodoteclado" class="foto-violão" />
+            <p class="dica-box">
+            <strong>💡 Para ampliar meus horizontes, busco novos desafios!</strong><br><br>
+            <div> <img src="../imagens/novoscaminhos.png" alt="" class="desafios-imagem" />
+
+
+          </p>
+          </div>
+        </section>
+
+    </main>
+    </div>      
+
+        
+    <footer class="site-footer">
+      <div class="footer-inner">
+        © 2026 LinguaCultura | Desenvolvido com ❤️ para estudantes e amantes de línguas e culturas.
+      </div>
+    </footer>
+
+    <script src="scriptperfil.js"></script>
+  </body>
+</html>

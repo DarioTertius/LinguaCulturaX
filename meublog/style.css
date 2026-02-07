@@ -1,0 +1,610 @@
+/* Reset e Variáveis */
+:root {
+  --primary: #001f3f;
+  --secondary: #003d7a;
+  --accent: #ffd700;
+  --light: #f5f6fa;
+  --dark: #2f3640;
+  --text: #333;
+  --border-radius: 12px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* IMPORTANTE: estrutura para footer fixo no final */
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  font-family:
+    "Segoe UI",
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
+  background-color: var(--light);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Header Cover */
+.header-cover {
+  position: relative;
+  min-height: 400px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+
+.cover-bg-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.1);
+  filter: brightness(0.8);
+  z-index: 1;
+}
+
+.cover-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 31, 63, 0.85),
+    rgba(0, 61, 122, 0.7)
+  );
+  z-index: 2;
+}
+
+.header-content {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  color: white;
+  text-align: center;
+}
+
+.header-info h1 {
+  font-size: 3.2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
+}
+
+.header-info p {
+  font-size: 1.15rem;
+  opacity: 0.95;
+}
+
+.header-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.language-toggle {
+  background: rgba(248, 248, 4, 0.92);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 10px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: var(--transition);
+  backdrop-filter: blur(10px);
+}
+
+.language-toggle:hover {
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.flag-container {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.flag-icon {
+  width: 26px;
+  height: 18px;
+  border-radius: 3px;
+  object-fit: cover;
+}
+
+/* Nav */
+nav {
+  background: white;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 12px 0;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+nav a {
+  display: inline-block;
+  color: var(--primary);
+  text-decoration: none;
+  margin: 0 16px;
+  font-weight: 600;
+  padding: 8px 10px;
+  border-radius: 10px;
+  transition: var(--transition);
+}
+
+nav a:hover {
+  background: rgba(0, 31, 63, 0.08);
+}
+
+/* ================================
+   LAYOUT PRINCIPAL (REFATORADO)
+   - SEM max-width travando
+   - margem pequena à direita
+   ================================ */
+.content-wrapper {
+  display: flex;
+  width: 100%;
+  margin: 0;
+  gap: 30px;
+
+  /* pequena margem à direita, confortável à esquerda */
+  padding: 40px 12px 40px 20px;
+
+  align-items: flex-start;
+  flex: 1 0 auto;
+  min-height: 0;
+}
+
+/* Sidebar de busca à esquerda */
+.sidebar-search {
+  width: 300px;
+  flex: 0 0 300px; /* fixa a sidebar */
+}
+
+.sidebar-sticky-container {
+  position: sticky;
+  top: 20px;
+}
+
+.search-sticky {
+  background: white;
+  border-radius: var(--border-radius);
+  padding: 24px;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.06);
+}
+
+.search-sticky h3 {
+  font-size: 1.35rem;
+  margin-bottom: 14px;
+  color: var(--primary);
+}
+
+.search-box-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 2px solid rgba(0, 0, 0, 0.08);
+  outline: none;
+  transition: var(--transition);
+}
+
+.search-input:focus {
+  border-color: rgba(0, 61, 122, 0.45);
+  box-shadow: 0 0 0 4px rgba(0, 61, 122, 0.12);
+}
+
+.search-btn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: var(--transition);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.search-btn:hover {
+  background: var(--secondary);
+}
+
+/* Resultados de busca */
+.search-results-sidebar {
+  display: none;
+  margin-top: 14px;
+}
+
+.search-results-sidebar.active {
+  display: block;
+}
+
+.results-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.result-item {
+  background: rgba(0, 31, 63, 0.05);
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.result-item:hover {
+  background: rgba(0, 31, 63, 0.08);
+}
+
+.result-item h3 {
+  font-size: 1.05rem;
+  margin-bottom: 6px;
+  color: var(--primary);
+}
+
+.result-item p {
+  font-size: 0.92rem;
+  opacity: 0.9;
+}
+
+.no-results {
+  padding: 12px;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.04);
+}
+
+/* Blocos laterais: redes e doações */
+.redes,
+.doacoes {
+  margin-top: 20px;
+  background: white;
+  border-radius: var(--border-radius);
+  padding: 18px;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.06);
+}
+
+.redes h3,
+.doacoes h3 {
+  color: var(--primary);
+  margin-bottom: 12px;
+}
+
+.social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.social-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  border-radius: 12px;
+  font-weight: 800;
+  text-decoration: none;
+  color: white;
+}
+
+.social-btn.facebook {
+  background: #1877f2;
+}
+
+.social-btn.instagram {
+  background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af);
+}
+
+.social-btn.pinterest {
+  background: #e60023;
+}
+
+.social-btn.youtube {
+  background: #ff0000;
+}
+
+.donation-image img {
+  width: 100%;
+  border-radius: 12px;
+  display: block;
+  margin: 10px 0;
+}
+
+.donation-btn {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  margin-top: 10px;
+  background: var(--accent);
+  color: #1a1a1a;
+  font-weight: 900;
+  padding: 12px;
+  border-radius: 12px;
+  text-decoration: none;
+}
+
+.donation-btn:hover {
+  filter: brightness(0.97);
+}
+
+/* Área principal do blog */
+main {
+  flex: 1 1 auto; /* ocupa todo o espaço restante */
+  min-width: 0;
+  width: auto;
+
+  background: white;
+  border-radius: var(--border-radius);
+  padding: 30px;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.06);
+  min-height: 600px;
+}
+
+/* Lista de posts */
+#lista-posts h2 {
+  font-size: 2.1rem;
+  color: var(--primary);
+  margin-bottom: 18px;
+}
+
+#posts-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Card do post */
+.post-preview {
+  background: rgba(0, 31, 63, 0.03);
+  border-radius: 16px;
+  padding: 24px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  transition: var(--transition);
+}
+
+.post-preview:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.post-preview h3 {
+  font-size: 1.55rem;
+  margin-bottom: 10px;
+  color: var(--primary);
+}
+
+.post-preview a {
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+
+.post-meta {
+  font-size: 0.95rem;
+  opacity: 0.85;
+  margin-bottom: 12px;
+}
+
+.post-resumo {
+  font-size: 1rem;
+  margin-bottom: 14px;
+}
+
+.btn-ler-mais {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 800;
+  transition: var(--transition);
+}
+
+.btn-ler-mais:hover {
+  background: var(--secondary);
+}
+
+/* Post individual */
+#post-individual #btn-voltar {
+  background: rgba(0, 31, 63, 0.1);
+  border: none;
+  border-radius: 12px;
+  padding: 10px 14px;
+  cursor: pointer;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+#post-conteudo {
+  padding: 40px 30px;
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 16px;
+}
+
+#post-conteudo h1 {
+  color: var(--primary);
+  margin-bottom: 14px;
+  font-size: 2.2rem;
+}
+
+.conteudo-post img {
+  max-width: 100%;
+  border-radius: 12px;
+}
+
+/* Footer */
+.site-footer {
+  margin-top: auto;
+  background: #0b1a2a;
+  color: white;
+  padding: 16px 0;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 30px;
+  font-size: 14px;
+  opacity: 0.9;
+  text-align: center;
+}
+
+/* ================================
+   RESPONSIVO
+   ================================ */
+@media (max-width: 1024px) {
+  .content-wrapper {
+    flex-direction: column;
+  }
+
+  .sidebar-search {
+    width: 100%;
+    flex: 1 1 auto;
+  }
+
+  .sidebar-sticky-container {
+    position: relative;
+    top: 0;
+  }
+
+  .search-box-container {
+    flex-direction: row;
+  }
+
+  .search-btn {
+    width: auto;
+    padding: 14px 30px;
+  }
+
+  .header-cover {
+    min-height: 350px;
+  }
+
+  .header-content {
+    padding: 30px;
+  }
+
+  .header-info h1 {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  nav a {
+    margin: 0 8px;
+  }
+
+  .header-info h1 {
+    font-size: 2.4rem;
+  }
+
+  .flag-icon {
+    width: 24px;
+    height: 16px;
+  }
+
+  .content-wrapper {
+    padding: 20px 15px;
+  }
+
+  .search-sticky {
+    padding: 20px;
+  }
+
+  .search-box-container {
+    flex-direction: column;
+  }
+
+  .search-btn {
+    width: 100%;
+  }
+
+  main {
+    padding: 20px;
+  }
+
+  .post-preview {
+    padding: 20px;
+  }
+
+  #post-conteudo {
+    padding: 30px 20px;
+  }
+
+  #lista-posts h2 {
+    font-size: 1.8rem;
+  }
+
+  .footer-inner {
+    padding: 0 20px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-cover {
+    min-height: 280px;
+  }
+
+  .header-info h1 {
+    font-size: 2rem;
+  }
+
+  nav a {
+    display: inline-block;
+    margin: 6px;
+  }
+
+  .content-wrapper {
+    padding: 16px 12px;
+  }
+
+  #post-conteudo {
+    padding: 22px 16px;
+  }
+}
+/* Garantias gerais para imagens não “sumirem”/distorcerem */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Imagens dentro do conteúdo do post: evita estourar e melhora leitura */
+.conteudo-post img {
+  display: block;
+  margin: 14px auto;
+}
+
+/* Cover: garante que apareça mesmo em alguns browsers/combinações */
+.cover-bg-image {
+  display: block;
+}

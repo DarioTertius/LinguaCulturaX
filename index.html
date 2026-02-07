@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LinguaculturaX</title>
+    <link rel="icon" href="imagens/logoslinguacultarax.ico" sizes="any" />
+    <link
+      rel="icon"
+      href="imagens/logoslinguacultarax.ico"
+      type="image/svg+xml"
+    />
+    <link rel="apple-touch-icon" href="imagens/logoslinguacultarax.png" />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="header-cover">
+      <!-- Imagem de capa de fundo -->
+      <img
+        src="imagens/capapes.jpeg"
+        alt="Pessoas aprendendo"
+        class="cover-bg-image"
+      />
+
+      <!-- Overlay escuro -->
+      <div class="cover-overlay"></div>
+
+      <!-- Conteúdo do header -->
+      <div class="header-content">
+        <div class="header-info">
+          <h1>
+            <img
+              src="imagens/logoslinguacultarax.png"
+              alt="logo"
+              style="
+                width: 200px;
+                height: 200px;
+                vertical-align: middle;
+                margin-right: 10px;
+                border-radius: 100%;
+              "
+            />LinguaCulturaX
+          </h1>
+          <p>Língua e Cultura pertinho de você!</p>
+        </div>
+
+        <div class="header-buttons">
+          <button class="language-toggle" onclick="toggleLanguage()">
+            <div class="flag-container">
+              <img
+                id="flag-br"
+                src="imagens/bandeira-brasil.gif"
+                alt="Brasil"
+                class="flag-icon"
+              />
+              <span id="emoji-br" class="flag-emoji">🇧🇷</span>
+              <span>PT</span>
+            </div>
+            <span class="separator">/</span>
+            <div class="flag-container">
+              <span>DE</span>
+              <img
+                id="flag-de"
+                src="imagens/bandeira-alemanha.gif"
+                alt="Alemanha"
+                class="flag-icon"
+              />
+              <span id="emoji-de" class="flag-emoji">🇩🇪</span>
+            </div>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <nav>
+      <a href="perfil/perfil.html">Conheça-nos</a>
+      <a href="alemao-para-lusofonos.html">Cursos</a>
+      <a href="meublog/index1.html">Blog</a>
+      <a href="licenca-creative-commons.html">Creative Commons License</a>
+    </nav>
+
+    <div class="content-wrapper">
+      <!-- SIDEBAR DE BUSCA À ESQUERDA -->
+      <aside class="sidebar-search">
+        <div class="sidebar-sticky-container">
+          <div class="search-sticky">
+            <h3>🔍 Buscar</h3>
+            <div class="search-box-container">
+              <input
+                type="text"
+                id="searchInput"
+                class="search-input"
+                placeholder="O que você está procurando?"
+              />
+              <button
+                id="searchButton"
+                class="search-btn"
+                onclick="performSearch()"
+              >
+                🔍 Buscar
+              </button>
+            </div>
+            <div id="searchResults" class="search-results-sidebar"></div>
+          </div>
+
+          <div class="redes">
+            <h3>📱 Nos siga nas redes sociais!</h3>
+            <div class="social-links">
+              <a
+                href="https://www.facebook.com/linguaculturax/"
+                target="_blank"
+                class="social-btn facebook"
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                  />
+                </svg>
+                Facebook
+              </a>
+
+              <a
+                href="https://www.instagram.com/linguaculturax/"
+                target="_blank"
+                class="social-btn instagram"
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                  />
+                </svg>
+                Instagram
+              </a>
+
+              <a
+                href="https://www.pinterest.com/linguaculturax/"
+                target="_blank"
+                class="social-btn pinterest"
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12 2C6.477 2 2 6.477 2 12c0 4.237 2.64 7.853 6.366 9.313-.088-.79-.167-2.005.035-2.867.183-.785 1.176-4.996 1.176-4.996s-.3-.6-.3-1.486c0-1.392.807-2.432 1.812-2.432.855 0 1.268.642 1.268 1.41 0 .86-.548 2.145-.83 3.335-.236.996.5 1.808 1.48 1.808 1.776 0 3.14-1.872 3.14-4.574 0-2.39-1.718-4.062-4.17-4.062-2.84 0-4.508 2.13-4.508 4.33 0 .858.33 1.778.743 2.278a.3.3 0 0 1 .07.287c-.077.315-.25.995-.283 1.135-.044.184-.145.224-.335.135-1.252-.582-2.034-2.41-2.034-3.876 0-3.156 2.293-6.054 6.61-6.054 3.47 0 6.166 2.472 6.166 5.78 0 3.447-2.17 6.22-5.183 6.22-1.012 0-1.964-.525-2.288-1.145l-.622 2.37c-.225.868-.834 1.958-1.243 2.624.938.29 1.93.447 2.964.447 5.523 0 10-4.477 10-10S17.523 2 12 2z"
+                  />
+                </svg>
+                Pinterest
+              </a>
+
+              <a
+                href="https://www.youtube.com/@linguaculturax"
+                target="_blank"
+                class="social-btn youtube"
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                  />
+                </svg>
+                YouTube
+              </a>
+            </div>
+          </div>
+
+          <div class="doacoes">
+            <h3>
+              Aproveite o conteúdo gratuito e se gostar, fique à vontade para
+              apoiar nosso projeto
+            </h3>
+            <h3>💝 Apoie nosso projeto</h3>
+            <div class="donation-image">
+              <img src="imagens/donation1.jpeg" alt="QR Code para doação" />
+            </div>
+            <p>
+              Sua contribuição nos ajuda a continuar oferecendo conteúdo de
+              qualidade!
+            </p>
+            <a
+              href="pagina-de-doacoes.html"
+              class="donation-btn"
+              target="_blank"
+            >
+              ❤️ Fazer uma doação
+            </a>
+          </div>
+        </div>
+      </aside>
+
+      <!-- CONTEÚDO PRINCIPAL -->
+      <main class="main-content">
+        <section id="boasvindas">
+          <h2>Bem-Vinda! Bem-Vindo!</h2>
+          <p>
+            Se você está interessado em aprender alemão ou em conhecer mais
+            sobre a cultura germânica, você está no lugar certo!
+          </p>
+          <p>
+            Navegue pelo site para explorar nossos cursos, materiais de apoio e
+            artigos. Estamos aqui para ajudar você na sua jornada de
+            aprendizado!
+          </p>
+        </section>
+
+        <div class="cta-blog">
+  <a href="meublog/index1.html" class="btn-blog">
+    📚 Acessar o Blog
+  </a>
+</div>
+
+        <img src="imagens/peoplelear.png" alt=""> 
+
+          <div class="metodo">
+            <h2>Oferecemos</h2>
+            <ul class="expandable-list">
+              <li class="expandable-item">
+                <div class="expandable-header" onclick="toggleExpand(this)">
+                  <span>👥 Cursos individuais ou em grupos</span>
+                  <span class="expandable-icon">▼</span>
+                </div>
+                <div class="expandable-content">
+                  <p>
+                    Oferecemos flexibilidade total no formato de aprendizado.
+                    Nossos cursos individuais proporcionam atenção
+                    personalizada, permitindo que você avance no seu próprio
+                    ritmo e foque nas suas necessidades específicas. Já os
+                    cursos em grupo promovem interação social, troca de
+                    experiências e prática conversacional com outros estudantes,
+                    criando um ambiente dinâmico e motivador para o aprendizado.
+                  </p>
+                </div>
+              </li>
+               <img
+              src="imagens/perfilfabiawillems.jpeg"
+              alt="O que oferecemos"
+              class="metodo-img"
+             />
+              <li class="expandable-item">
+                <div class="expandable-header" onclick="toggleExpand(this)">
+                  <span>📚 Material didático atualizado</span>
+                  <span class="expandable-icon">▼</span>
+                </div>
+                <div class="expandable-content">
+                  <p>
+                    Trabalhamos com materiais didáticos modernos e
+                    constantemente atualizados, que refletem o alemão
+                    contemporâneo e as situações reais de comunicação. Nossos
+                    recursos incluem livros-texto de editoras renomadas,
+                    materiais audiovisuais autênticos, plataformas digitais
+                    interativas e conteúdos culturais atuais, garantindo que
+                    você aprenda um alemão relevante e aplicável ao mundo de
+                    hoje.
+                  </p>
+                </div>
+              </li>
+              <img src="imagens/materialdidatico.png" alt="" srcset="">
+              <li class="expandable-item">
+                <div class="expandable-header" onclick="toggleExpand(this)">
+                  <span>🎯 Método</span>
+                  <span class="expandable-icon">▼</span>
+                </div>
+                <div class="expandable-content">
+                  <p>
+                    Nossa metodologia combina abordagens comunicativas e
+                    práticas, focando no uso real do idioma desde as primeiras
+                    aulas. Integramos as quatro habilidades linguísticas (falar,
+                    ouvir, ler e escrever) de forma equilibrada, utilizando
+                    técnicas modernas de ensino que promovem a autonomia do
+                    aluno. Incorporamos também elementos culturais e situações
+                    cotidianas para tornar o aprendizado mais significativo e
+                    efetivo.
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        © 2026 LinguaCultura | Desenvolvido com ❤️ para estudantes e amantes de
+        línguas e culturas.
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2">
+  <!-- Preto -->
+  <rect width="3" height="0.6667" y="0" fill="#000000"/>
+  <!-- Vermelho -->
+  <rect width="3" height="0.6667" y="0.6667" fill="#dd0000"/>
+  <!-- Dourado -->
+  <rect width="3" height="0.6667" y="1.3333" fill="#ffce00"/>
+</svg>

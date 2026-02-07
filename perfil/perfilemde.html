@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LinguaculturaX</title>
+    <link rel="icon" href="../imagens/logoslinguacultarax.ico" sizes="any" />
+    <link
+      rel="icon"
+      href="../imagens/logoslinguacultarax.ico"
+      type="image/svg+xml"
+    />
+    <link rel="apple-touch-icon" href="../imagens/logoslinguacultarax.png" />
+
+    <link rel="stylesheet" href="styleperfis.css" />
+  </head>
+  <body>
+    <header class="header-cover">
+      <!-- Imagem de capa de fundo -->
+      <img
+        src="../imagens/capapes.jpeg"
+        alt="Lernende Menschen"
+        class="cover-bg-image"
+      />
+
+      <!-- Overlay escuro -->
+      <div class="cover-overlay"></div>
+
+      <!-- Conteúdo do header -->
+      <div class="header-content">
+        <div class="header-info">
+          <h1>
+            <img
+              src="../imagens/logoslinguacultarax.png"
+              alt="Logo"
+              style="
+                width: 200px;
+                height: 200px;
+                vertical-align: middle;
+                margin-right: 10px;
+                border-radius: 100%;
+              "
+            />LinguaCulturaX
+          </h1>
+          <p>Sprache und Kultur ganz nah bei Ihnen!</p>
+        </div>
+
+        <div class="header-buttons">
+          <button class="language-toggle" onclick="toggleLanguage()">
+            <div class="flag-container">
+              <img
+                id="flag-br"
+                src="../imagens/bandeira-brasil.gif"
+                alt="Brasilien"
+                class="flag-icon"
+              />
+              <span id="emoji-br" class="flag-emoji">🇧🇷</span>
+              <span>PT</span>
+            </div>
+            <span class="separator">/</span>
+            <div class="flag-container">
+              <span>DE</span>
+              <img
+                id="flag-de"
+                src="../imagens/bandeira-alemanha.gif"
+                alt="Deutschland"
+                class="flag-icon"
+              />
+              <span id="emoji-de" class="flag-emoji">🇩🇪</span>
+            </div>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <nav>
+      <a href="../index.html">Startseite</a>
+      <a href="../alemao-para-lusofonos.html">Kurse</a>
+      <a href="/meublog/index1.html">Blog</a>
+      <a href="perfilemde.html">Profil (auf Deutsch)</a>
+    </nav>
+
+    <div class="content-wrapper">
+      <!-- SIDEBAR DE BUSCA À ESQUERDA -->
+      <aside class="sidebar-search">
+        <div class="sidebar-sticky-container">
+          <div class="search-sticky">
+            <h3>🔍 Suchen</h3>
+            <div class="search-box-container">
+              <input
+                type="text"
+                id="searchInput"
+                class="search-input"
+                placeholder="Wonach suchen Sie?"
+              />
+              <button
+                id="searchButton"
+                class="search-btn"
+                onclick="performSearch()"
+              >
+                🔍 Suchen
+              </button>
+            </div>
+            <div id="searchResults" class="search-results-sidebar"></div>
+          </div>
+
+          <div class="redes">
+            <h3>📱 Folgen Sie uns in den sozialen Netzwerken!</h3>
+            <div class="social-links">
+              <a
+                href="https://facebook.com/suapagina"
+                target="_blank"
+                class="social-btn facebook"
+              >
+                Facebook
+              </a>
+
+              <a
+                href="https://instagram.com/suapagina"
+                target="_blank"
+                class="social-btn instagram"
+              >
+                Instagram
+              </a>
+
+              <a
+                href="https://twitter.com/suapagina"
+                target="_blank"
+                class="social-btn twitter"
+              >
+                X (Twitter)
+              </a>
+
+              <a
+                href="https://youtube.com/suacanal"
+                target="_blank"
+                class="social-btn youtube"
+              >
+                YouTube
+              </a>
+            </div>
+          </div>
+
+          <div class="doacoes">
+            <h3>
+              Nutzen Sie unsere kostenlosen Inhalte und unterstützen Sie unser
+              Projekt, wenn es Ihnen gefällt
+            </h3>
+            <h3>💝 Unterstützen Sie unser Projekt</h3>
+            <div class="donation-image">
+              <img src="../imagens/donation1.jpeg" alt="QR-Code für Spenden" />
+            </div>
+            <p>
+              Ihr Beitrag hilft uns, weiterhin hochwertige Inhalte anzubieten!
+            </p>
+            <a
+              href="pagina-de-doacoes.html"
+              class="donation-btn"
+              target="_blank"
+            >
+              ❤️ Spenden
+            </a>
+          </div>
+        </div>
+      </aside>
+
+      <!-- CONTEÚDO PRINCIPAL -->
+      <main class="main-content">
+        <section id="boasvindas">
+          <h2>Hallo, liebe Besucherin, lieber Besucher! 👋</h2>
+          <p>
+            Hallo! Mein Name ist
+            <strong>Maria Fábia Paz Vitorino Willems</strong>. Ich wurde in
+            Brasilien geboren und habe 27 Jahre in Deutschland gelebt. Ich
+            besitze die doppelte Staatsangehörigkeit: die brasilianische und die
+            deutsche. Ich bin Linguistin, Sprachlehrerin und Übersetzerin. Ich
+            lebe zwischen zwei Ländern und vereine zwei wunderbare Kulturen.
+          </p>
+
+          <br /><br />
+
+          <div>
+            <img
+              src="../imagens/perfilfabiawillems.jpeg"
+              alt=""
+              class="perfil-imagem"
+            />
+          </div>
+
+          <br /><br />
+
+          <p>
+            Ich wurde im „Land der Sonne“ (Ceará) geboren und bin im „Land des
+            Nieselregens“ (São Paulo) aufgewachsen. Schon als Kind spielte ich
+            gerne Lehrerin mit meinen Geschwistern und Cousins. Ich hatte sogar
+            eine Tafel, Kreide und einen Schwamm! Die kleinen Schüler benahmen
+            sich gut und beschwerten sich nicht über den Unterricht.
+          </p>
+
+          <p>
+            In meiner Jugend entschied ich mich für eine technische Ausbildung
+            im Bereich Datenverarbeitung. Da ich jedoch Schülerin einer
+            öffentlichen Schule war und am Stadtrand lebte, musste ich bereits
+            mit 15 Jahren als Verkäuferin arbeiten, um den Abendkurs finanzieren
+            zu können. Es war schwierig, aber ich schloss die Ausbildung zwei
+            Jahre später erfolgreich ab.
+          </p>
+
+          <p>
+            Mit 20 Jahren begann ich mein Studium an der Universität. Bereits im
+            vierten Semester begann ich, Portugiesisch zu unterrichten. Das
+            Lehramtsstudium erforderte viel Engagement und Disziplin. In
+            Deutschland entspricht dieses Studium dem „Lehramt am Gymnasium /
+            Staatsexamen“.
+          </p>
+
+          <p>
+            Bis 1996 arbeitete ich als Sprachlehrerin in öffentlichen und
+            privaten Schulen in São Paulo. Außerdem sammelte ich Erfahrung als
+            pädagogische Koordinatorin für Literaturprojekte und
+            Wissenschaftsmessen.
+          </p>
+
+          <p>
+            1996 heiratete ich und zog nach Deutschland. Zunächst musste ich die
+            Sprache lernen und die Kultur kennenlernen. Im zweiten Jahr begann
+            ich wieder Portugiesisch an der Volkshochschule Stuttgart zu
+            unterrichten – ein unbeschreibliches Gefühl.
+          </p>
+
+          <p>
+            Während meines Studiums arbeitete ich weiterhin als Lehrerin und
+            absolvierte zusätzliche Weiterbildungen im Bereich
+            Erwachsenenbildung und digitale Medien. Lernen hört für mich nie auf
+            – es gibt immer etwas Neues zu entdecken.
+          </p>
+
+          <p>
+            Im Jahr 2024 erfüllte ich mir meinen Traum und kehrte nach Brasilien
+            zurück.
+          </p>
+
+          <p>
+            Im August 2025 gründete ich voller Freude mein eigenes Unternehmen
+            (MEI), um Sprachkurse, schulische Begleitung und Computerkurse für
+            Seniorinnen und Senioren online und regional anzubieten.
+          </p>
+        </section>
+      </main>
+    </div>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        © 2026 LinguaCultura | Entwickelt mit ❤️ für Sprach- und
+        Kulturbegeisterte.
+      </div>
+    </footer>
+
+    <script src="scriptperfil.js"></script>
+  </body>
+</html>
